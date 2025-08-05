@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Television Shows</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <script src="jquery-3.6.3.min.js"></script>
+
+    <link rel="stylesheet" href="materialize.min.css">
+
+    <script src="materialize.min.js"></script>
+
+    <style>
+        body{
+            background-color: black;
+        }
+        div#tv_show_catalog{
+            display: none;
+        }
+        .left_side {
+            width: 33%;
+            height: 100vh;
+            background-color: #f0f0f0;
+            float: left;
+            position: fixed;
+            overflow: hidden;
+        }
+
+        .card h5 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+        }
+
+        #show_info p {
+            margin-bottom: 10px;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+        }
+
+        .right_side {
+            width: 67%;
+            height: 100vh;
+            float: right;
+        }
+        h2{
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h4{
+            text-align: center;
+            color: white;
+            font-family: Roboto, sans-serif;
+        }
+        p{
+            text-align: center;
+            font-family: "Times New Roman", sans-serif;
+        }
+        img{
+            width: 75%;
+            display: block;
+            margin: auto;
+        }
+        nav {
+            background-color: teal;
+        }
+        .episode-card {
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .episode-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-content p {
+            margin: 5px 0;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .card-title.season-info {
+            background: rgba(0,0,0,0.6);
+            font-size: 14px;
+            padding: 5px 8px;
+            border-radius: 4px;
+        }
+        .card-image img {
+            height: 200px;       /* Set a fixed height */
+            width: 100%;         /* Fill the card's width */
+            object-fit: cover;   /* Crop without stretching */
+            border-radius: 4px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<div class="navbar-fixed">
+<nav>
+    <div class="nav-wrapper">
+        <div class="container">
+            <a href="" class="brand-logo">
+                <span>TV Shows</span>
+                <i class="material-icons left">tv</i>
+            </a>
+            <a href="" class="sidenav-trigger" data-target="mobile-links">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <i class="material-icons left">search</i>
+                </li>
+                <li>
+                    <form>
+                        <input type="text" id="search_bar" size="50" placeholder="Search">
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</div>
+
+<ul class="sidenav" id="mobile-links">
+    <li>
+        <h6>Search</h6>
+    </li>
+    <li>
+        <label>
+            <input type="search" name="search">
+        </label>
+    </li>
+</ul>
+
+<div id="tv_show_catalog">
+    <div class="left_side">
+        <div class="card grey lighten-4" style="margin: 20px; padding: 20px; height: calc(100vh - 40px); overflow-y: auto;">
+            <h5 id="show_name" class="center-align teal-text text-darken-3"></h5>
+            <img src="https://static.tvmaze.com/images/tvm-header-logo.png" alt="showImg" id="show_image" style="margin-top: 20px; border-radius: 10px;">
+            <div id="show_info" style="margin-top: 20px; margin-bottom: 50px;">
+                <!-- JS will populate this -->
+            </div>
+        </div>
+    </div>
+
+    <div id= "details" class="right_side">
+    </div>
+</div>
+
+<script src="tv_shows.js"></script>
+<script>
+    $(document).ready(() => {
+        $(".sidenav").sidenav();
+    });
+</script>
+
+
+</body>
+</html>
